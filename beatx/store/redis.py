@@ -28,7 +28,7 @@ class Store:
         })
 
     def has_locked(self):
-        return self.lock is not None
+        return self.lock is not None and self.lock.owned()
 
     def acquire_lock(self, lock_ttl=60):
         lock = self.rdb.lock(self.LOCK_KEY, timeout=lock_ttl, sleep=1)

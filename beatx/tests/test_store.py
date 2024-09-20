@@ -67,7 +67,7 @@ class TestRedisStore:
         assert acquired is True
         assert self.store.has_locked() is True
 
-        assert self.store.rdb.exists(self.store.LOCK_KEY) is True
+        assert self.store.rdb.exists(self.store.LOCK_KEY) is 1
 
     def test_acquire_exists_lock(self):
         self.store.rdb.lock(
@@ -92,4 +92,4 @@ class TestRedisStore:
         self.store.release_lock()
         assert self.store.has_locked() is False
 
-        assert self.store.rdb.exists(self.store.LOCK_KEY) is False
+        assert self.store.rdb.exists(self.store.LOCK_KEY) is 0

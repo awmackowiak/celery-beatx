@@ -1,5 +1,7 @@
 pytest
 pytest-cov
 
+celery
+
 redis
 ephem
